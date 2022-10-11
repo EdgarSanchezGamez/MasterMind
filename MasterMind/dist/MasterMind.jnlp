@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="MasterMind.jar" size="7454" download="eager" />
+    <jar href="MasterMind.jar" size="10339" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="mastermind.MasterMind"  name="MasterMind" />
   <update check="always"/>

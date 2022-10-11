@@ -10,8 +10,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="733.0" prefWidth="657.0" style="-fx-background-image: url('C:\Users\Administrador\Desktop\2n DAM\M13\MasterMind\fondo.jpg');" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mastermind.FXMLDocumentController">
-   <children>
+<AnchorPane id="AnchorPane" prefHeight="733.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mastermind.FXMLDocumentController">
+        <ImageView fitHeight="733.0" fitWidth="658.0" pickOnBounds="true">
+         <image>
+            <Image url="fondo-sala-estudio-rosa-claro-liso-vacio-abstracto-uso-como-montaje-exhibicion-productos-banner-plantilla_1258-52757.jpg" />
+         </image>
+        </ImageView>
+    <children>
       <GridPane layoutX="25.0" layoutY="50.0" prefHeight="401.0" prefWidth="321.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

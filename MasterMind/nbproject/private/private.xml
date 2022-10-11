@@ -3,9 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/I5%207600K/Documents/CFGS/2n%20DAM/Proyecto/MasterMind%20Folder/MasterMind/src/mastermind/ColorCombination.java</file>
-            <file>file:/C:/Users/I5%207600K/Documents/CFGS/2n%20DAM/Proyecto/MasterMind%20Folder/MasterMind/src/interfaces/ColorCombinationContract.java</file>
-            <file>file:/C:/Users/I5%207600K/Documents/CFGS/2n%20DAM/Proyecto/MasterMind%20Folder/MasterMind/src/interfaces/GameListenerContract.java</file>
+            <file>file:/C:/Users/I5%207600K/Documents/CFGS/2n%20DAM/Proyecto/MasterMind%20Folder/MasterMind-main/MasterMind/src/mastermind/FXMLDocument.fxml</file>
+            <file>file:/C:/Users/I5%207600K/Documents/CFGS/2n%20DAM/Proyecto/MasterMind%20Folder/MasterMind-main/MasterMind/src/mastermind/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/I5%207600K/Documents/CFGS/2n%20DAM/Proyecto/MasterMind%20Folder/MasterMind-main/MasterMind/src/mastermind/MasterMind.java</file>
         </group>
     </open-files>
 </project-private>

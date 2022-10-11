@@ -12,14 +12,15 @@ import java.util.Map;
  */
 public interface MasterMindViewContract {
     
+    /*Bloqueja la pantalla, mostra el missatge corresponent al número d’intents 
+    amb el qual el jugador a guanyat i fa sonar la música de joc guanyat.*/
     public void winGame(String a);
     
-    
-    
+    /*Bloqueja la pantalla, mostra el missatge corresponent com a joc perdut i fa sonar la música de joc perdut.*/
     public void overGame(String a);
     
-    
-    
+    /* Rep el mapa del presentador amb el resultat dels encerts realitzats a la jugada. 
+    Actualitza el joc a la pantalla.*/
     public void play(Map<Matches ,Integer > mapa);
     
     

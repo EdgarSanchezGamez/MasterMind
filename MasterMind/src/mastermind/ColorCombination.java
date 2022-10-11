@@ -15,16 +15,16 @@ import java.util.Map;
  * @author i7 6700k
  */
 public class ColorCombination implements ColorCombinationContract{
-    
+    //Llista de color de la jugada.
     private List<Color> lista;
-    
+    // Constructor on es guarda la llista de colors de la jugada
     public ColorCombination(List<Color> l){
         this.lista = l;
     
     }
 
     @Override
-    public Map<Matches, Integer> compare(ColorCombination hidden) {
+    public Map<Integer,Matches> compare(ColorCombination hidden) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

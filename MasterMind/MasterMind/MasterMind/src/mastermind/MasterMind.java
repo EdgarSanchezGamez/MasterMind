@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML.java to edit this template
  */
 package mastermind;
 
@@ -13,7 +12,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Administrador
+ * @author i7 6700k
  */
 public class MasterMind extends Application {
     
@@ -25,8 +24,12 @@ public class MasterMind extends Application {
         
         stage.setScene(scene);
         stage.show();
+        System.out.println("hola que tal");
     }
-    
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

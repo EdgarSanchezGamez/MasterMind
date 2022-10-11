@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="733.0" prefWidth="657.0" style="-fx-background-image: url('fondo.jpg');" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mastermind.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="733.0" prefWidth="657.0" style="-fx-background-image: url('C:\Users\Administrador\Desktop\2n DAM\M13\MasterMind\fondo.jpg');" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mastermind.FXMLDocumentController">
    <children>
       <GridPane layoutX="25.0" layoutY="50.0" prefHeight="401.0" prefWidth="321.0">
         <columnConstraints>

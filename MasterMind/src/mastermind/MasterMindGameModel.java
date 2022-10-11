@@ -25,7 +25,7 @@ public class MasterMindGameModel implements MastermindGameModelContract{
     }
 
     @Override
-    public Map<Matches, Integer> validatePlay(ColorCombination colors) {
+    public Map<Integer,Matches> validatePlay(ColorCombination colors) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

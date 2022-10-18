@@ -14,28 +14,30 @@ import java.util.List;
  */
 public class MastermindPresenter extends GameListener implements MasterMindPresenterContract{
     
-    int e;
+    private MastermindView vista;
+    private MasterMindGameModel modelo;
+    private ColorCombination cc;
     
     
     
     @Override
     public void startGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        modelo.start();
     }
 
     @Override
     public void validate(List<Color> l) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cc.setColors(l);
     }
 
     @Override
     public void win(String a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        vista.winGame(a);
     }
 
     @Override
     public void over(String a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        vista.overGame(a);
     }
     
     

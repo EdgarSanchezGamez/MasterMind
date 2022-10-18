@@ -7,12 +7,13 @@ package mastermind;
 import interfaces.MasterMindViewContract;
 import interfaces.Matches;
 import java.util.Map;
+import javafx.fxml.FXML;
 
 /**
  *
  * @author i7 6700k
  */
-public class MastermindView implements MasterMindViewContract{
+public class MastermindView implements MasterMindViewContract {
 
     @Override
     public void winGame(String a) {
@@ -28,7 +29,5 @@ public class MastermindView implements MasterMindViewContract{
     public void play(Map<Matches, Integer> mapa) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
+
 }

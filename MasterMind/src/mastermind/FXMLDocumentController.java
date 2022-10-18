@@ -5,20 +5,28 @@
  */
 package mastermind;
 
+import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.AccessibleAction;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Administrador
  */
 public class FXMLDocumentController implements Initializable {
-    
+
     @FXML
     private Label label00;
     @FXML
@@ -187,10 +195,62 @@ public class FXMLDocumentController implements Initializable {
     private Button bototnVerde;
     @FXML
     private Button botonAmarillo;
-    
+    @FXML
+    private MenuBar menuBar;
+    @FXML
+    private Menu menuFile;
+    @FXML
+    private MenuItem menuItemExit;
+    @FXML
+    private Menu menuPartida;
+    @FXML
+    private MenuItem menuItemIniciar;
+    @FXML
+    private Menu menuHelp;
+    @FXML
+    private MenuItem menuItemInfo;
+    @FXML
+    private MenuItem menuItemAbout;
+    @FXML
+    private AnchorPane anchorPane;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    @FXML
+    public void closeGame() {
+        System.exit(0);
+    }
+
+    @FXML
+    private void mostrarAbout(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("About");
+        alert.setContentText("Version 1.0.0\n"
+                + "Autores: Eric , Edgar y Pau");
+        alert.showAndWait();
+    }
+
+    @FXML
+    private void mostrarInformacion(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Informacion");
+        alert.setContentText("El joc consisteix a trobar la combinació de fitxes de colors oculta."
+                + " Començant per la part superior, cada filera de forats determina un torn de la partida. "
+                + "En cada torn hem d'arrastrar fitxes de colors en tots els huecos i tocar o fer clic als"
+                + " punts de la part dreta per descobrir els encerts.\n"
+                + "Si hem col·locat una fitxa del color correcta en la posició adequada, no apareixerà un punt negre. "
+                + "Si hem determinat el color de la fitxa però la posició no és correcta, apareixerà un punt blanc. "
+                + "I si per el contrari no existeix cap fitxa d'aquest color en el joc el punt no canvia de color."
+                + " Els colors dels punts ens indiquen la quantitat de peces bé o mal col·locades però no ens indiquen a la fitxa que es refereix. "
+                + "És simplement un contador global de les fitxes ben col·locades, les fitxes mal situades i les fitxes que no apareixen en la combinació.\n"
+                + "Segueix les pistes de cada jugada per planear la combinació de colors del següent turno. Si acertem la combinació, "
+                + "els quatre punts apareixeran de color negre i es mostrarà la combinació oculta a la part inferior.");
+        alert.showAndWait();
+    }
+
 }

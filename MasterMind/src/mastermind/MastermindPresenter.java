@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class MastermindPresenter extends GameListener implements MasterMindPresenterContract{
     
-    private MastermindView vista;
+    private FXMLDocumentController vista;
     private MasterMindGameModel modelo;
     private ColorCombination cc;
     

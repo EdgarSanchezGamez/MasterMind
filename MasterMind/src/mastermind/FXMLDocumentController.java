@@ -5,13 +5,16 @@
  */
 package mastermind;
 
+import interfaces.Matches;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.AccessibleAction;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,13 +22,15 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
-import javax.swing.JFrame;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 
 /**
  *
  * @author Administrador
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController implements Initializable , interfaces.MasterMindViewContract {
 
     @FXML
     private Label label00;
@@ -212,7 +217,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private MenuItem menuItemAbout;
     @FXML
-    private AnchorPane anchorPane;
+    public AnchorPane anchorPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -251,6 +256,51 @@ public class FXMLDocumentController implements Initializable {
                 + "Segueix les pistes de cada jugada per planear la combinació de colors del següent turno. Si acertem la combinació, "
                 + "els quatre punts apareixeran de color negre i es mostrarà la combinació oculta a la part inferior.");
         alert.showAndWait();
+    }
+
+    @Override
+    public void winGame(String a) {
+        com.sun.javafx.application.PlatformImpl.startup(() -> {
+        });
+        final String nombreArchivo = "sonidoVictoria.mp3";
+        File archivo = new File(nombreArchivo);
+
+        Media audio = new Media(archivo.toURI().toString());
+
+        MediaPlayer reproductor = new MediaPlayer(audio);
+
+        reproductor.play();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Victoria!");
+        alert.setContentText(a);
+        alert.showAndWait();
+    }
+
+    @Override
+    public void overGame(String a) {
+         com.sun.javafx.application.PlatformImpl.startup(() -> {
+        });
+        final String nombreArchivo = "sonidoDerrota.mp3";
+        File archivo = new File(nombreArchivo);
+
+        Media audio = new Media(archivo.toURI().toString());
+
+        MediaPlayer reproductor = new MediaPlayer(audio);
+
+        reproductor.play();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Derrota...");
+        alert.setContentText(a);
+        alert.showAndWait();
+    }
+
+    @Override
+    public void play(Map<Matches, Integer> mapa) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

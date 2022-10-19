@@ -157,7 +157,7 @@
           </Menu>
             <Menu fx:id="menuPartida" mnemonicParsing="false" text="Partida">
               <items>
-                <MenuItem fx:id="menuItemIniciar" mnemonicParsing="false" text="Iniciar" />
+                <MenuItem fx:id="menuItemIniciar" mnemonicParsing="false" onAction="#pruebaMusica" text="Iniciar" />
               </items>
             </Menu>
           <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">

@@ -5,6 +5,7 @@
  */
 package mastermind;
 
+import com.sun.java.accessibility.util.EventID;
 import interfaces.Matches;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -217,8 +218,9 @@ public class FXMLDocumentController implements Initializable , interfaces.Master
     @FXML
     private MenuItem menuItemAbout;
     @FXML
-    public AnchorPane anchorPane;
-
+    private AnchorPane anchorPane;
+    
+    Map<Matches,Integer>mapa;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -300,7 +302,22 @@ public class FXMLDocumentController implements Initializable , interfaces.Master
 
     @Override
     public void play(Map<Matches, Integer> mapa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.mapa = mapa;
+       
+        for (Map.Entry<Matches, Integer> entry : mapa.entrySet()) {
+            Matches key = entry.getKey();
+            Integer value = entry.getValue();
+            
+            if (key.equals("Ok")) {
+                
+            }else{
+                
+            }
+                
+            
+        }
+        
+        
     }
 
 }

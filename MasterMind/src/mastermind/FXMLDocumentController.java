@@ -6,7 +6,9 @@
 package mastermind;
 
 import com.sun.java.accessibility.util.EventID;
+import interfaces.Color;
 import interfaces.Matches;
+import static java.awt.SystemColor.text;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.net.URL;
@@ -15,6 +17,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -22,177 +25,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
 
 /**
  *
  * @author Administrador
  */
-public class FXMLDocumentController implements Initializable , interfaces.MasterMindViewContract {
+public class FXMLDocumentController implements Initializable, interfaces.MasterMindViewContract {
 
-    @FXML
-    private Label label00;
-    @FXML
-    private Label label01;
-    @FXML
-    private Label label02;
-    @FXML
-    private Label label10;
-    @FXML
-    private Label label21;
-    @FXML
-    private Label label31;
-    @FXML
-    private Label label30;
-    @FXML
-    private Label label20;
-    @FXML
-    private Label label40;
-    @FXML
-    private Label label50;
-    @FXML
-    private Label label60;
-    @FXML
-    private Label label61;
-    @FXML
-    private Label label41;
-    @FXML
-    private Label label51;
-    @FXML
-    private Label label11;
-    @FXML
-    private Label label12;
-    @FXML
-    private Label label22;
-    @FXML
-    private Label label32;
-    @FXML
-    private Label label70;
-    @FXML
-    private Label label80;
-    @FXML
-    private Label label90;
-    @FXML
-    private Label label71;
-    @FXML
-    private Label label81;
-    @FXML
-    private Label label91;
-    @FXML
-    private Label label42;
-    @FXML
-    private Label label52;
-    @FXML
-    private Label label62;
-    @FXML
-    private Label label72;
-    @FXML
-    private Label label82;
-    @FXML
-    private Label label92;
-    @FXML
-    private Label label03;
-    @FXML
-    private Label label13;
-    @FXML
-    private Label label23;
-    @FXML
-    private Label label33;
-    @FXML
-    private Label label43;
-    @FXML
-    private Label label53;
-    @FXML
-    private Label label63;
-    @FXML
-    private Label label73;
-    @FXML
-    private Label label83;
-    @FXML
-    private Label label93;
-    @FXML
-    private Label label00E;
-    @FXML
-    private Label label01E;
-    @FXML
-    private Label label02E;
-    @FXML
-    private Label label10E;
-    @FXML
-    private Label label21E;
-    @FXML
-    private Label label31E;
-    @FXML
-    private Label label30E;
-    @FXML
-    private Label label20E;
-    @FXML
-    private Label label40E;
-    @FXML
-    private Label label50E;
-    @FXML
-    private Label label60E;
-    @FXML
-    private Label label61E;
-    @FXML
-    private Label label41E;
-    @FXML
-    private Label label51E;
-    @FXML
-    private Label label11E;
-    @FXML
-    private Label label12E;
-    @FXML
-    private Label label22E;
-    @FXML
-    private Label label32E;
-    @FXML
-    private Label label70E;
-    @FXML
-    private Label label80E;
-    @FXML
-    private Label label90E;
-    @FXML
-    private Label label71E;
-    @FXML
-    private Label label81E;
-    @FXML
-    private Label label91E;
-    @FXML
-    private Label label42E;
-    @FXML
-    private Label label52E;
-    @FXML
-    private Label label62E;
-    @FXML
-    private Label label72E;
-    @FXML
-    private Label label82E;
-    @FXML
-    private Label label92E;
-    @FXML
-    private Label label03E;
-    @FXML
-    private Label label13E;
-    @FXML
-    private Label label23E;
-    @FXML
-    private Label label33E;
-    @FXML
-    private Label label43E;
-    @FXML
-    private Label label53E;
-    @FXML
-    private Label label63E;
-    @FXML
-    private Label label73E;
-    @FXML
-    private Label label83E;
-    @FXML
-    private Label label93E;
     @FXML
     private Button botonRojo;
     @FXML
@@ -218,12 +63,15 @@ public class FXMLDocumentController implements Initializable , interfaces.Master
     @FXML
     private MenuItem menuItemAbout;
     @FXML
+    private GridPane gridPane;
+    @FXML
     private AnchorPane anchorPane;
-    
-    Map<Matches,Integer>mapa;
+
+    Map<Matches, Integer> mapa;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        configurarBotons();
     }
 
     @FXML
@@ -259,7 +107,7 @@ public class FXMLDocumentController implements Initializable , interfaces.Master
                 + "els quatre punts apareixeran de color negre i es mostrarà la combinació oculta a la part inferior.");
         alert.showAndWait();
     }
-
+    int contador =0;
     @Override
     public void winGame(String a) {
         com.sun.javafx.application.PlatformImpl.startup(() -> {
@@ -282,7 +130,7 @@ public class FXMLDocumentController implements Initializable , interfaces.Master
 
     @Override
     public void overGame(String a) {
-         com.sun.javafx.application.PlatformImpl.startup(() -> {
+        com.sun.javafx.application.PlatformImpl.startup(() -> {
         });
         final String nombreArchivo = "sonidoDerrota.mp3";
         File archivo = new File(nombreArchivo);
@@ -302,22 +150,34 @@ public class FXMLDocumentController implements Initializable , interfaces.Master
 
     @Override
     public void play(Map<Matches, Integer> mapa) {
-       this.mapa = mapa;
-       
+        this.mapa = mapa;
+
         for (Map.Entry<Matches, Integer> entry : mapa.entrySet()) {
             Matches key = entry.getKey();
             Integer value = entry.getValue();
-            
+
             if (key.equals("Ok")) {
-                
-            }else{
-                
+
+            } else {
+
             }
-                
-            
+
         }
-        
-        
+
+    }
+
+    @FXML
+    private void afegirColor(ActionEvent event) {
+        ((Button)event.getSource()).getId();
+     ((Label)gridPane.getChildren().get(contador)).setStyle("-fx-background-color: blue");
+     contador++;
+    }
+
+    private void configurarBotons() {
+        botonAzul.setId(interfaces.Color.BLAU.toString());
+        botonAmarillo.setId(interfaces.Color.GROC.toString());
+        botonRojo.setId(interfaces.Color.VERMELL.toString());
+        bototnVerde.setId(interfaces.Color.VERD.toString());
     }
 
 }

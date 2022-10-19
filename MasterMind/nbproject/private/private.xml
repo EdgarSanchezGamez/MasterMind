@@ -3,14 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/mastermind/MastermindView.java</file>
             <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/mastermind/FXMLDocumentController.java</file>
             <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/interfaces/MasterMindViewContract.java</file>
             <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/interfaces/Color.java</file>
+            <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/mastermind/MasterMind.java</file>
             <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/mastermind/MasterMindGameModel.java</file>
             <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/mastermind/MastermindPresenter.java</file>
+            <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/interfaces/MastermindGameModelContract.java</file>
             <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/mastermind/ColorCombination.java</file>
             <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/mastermind/GameListener.java</file>
+            <file>file:/C:/Users/eric/Desktop/DAM2/M13_Projecte/Repositorio/MasterMind/MasterMind/src/interfaces/Matches.java</file>
         </group>
     </open-files>
 </project-private>

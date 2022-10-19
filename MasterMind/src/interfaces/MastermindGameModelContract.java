@@ -27,7 +27,7 @@ public interface MastermindGameModelContract {
     També s’encarregaria d’avissar als listeners de si hi ha un canvi d’estat del joc 
     (per exemple si s’ha guanyat o ha finalitzat el joc per nombre d’intents)
     */
-    public  Map<Integer,Matches> validatePlay(ColorCombination colors);
+    public  Map<Matches,Integer> validatePlay(ColorCombination colors);
     
     
 }

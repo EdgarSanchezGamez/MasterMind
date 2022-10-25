@@ -11,15 +11,15 @@ import interfaces.GameListenerContract;
  * @author i7 6700k
  */
 public class GameListener implements GameListenerContract{
-
+    
     @Override
     public void over() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void win() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      
     }
     
     

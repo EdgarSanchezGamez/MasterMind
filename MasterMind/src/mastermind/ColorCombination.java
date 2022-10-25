@@ -32,7 +32,7 @@ public class ColorCombination implements ColorCombinationContract{
     public List<Color> setColors(List<Color> l) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+         
     
-   
     
 }

@@ -18,7 +18,6 @@ public class MastermindPresenter implements MasterMindPresenterContract{
     
     private FXMLDocumentController vista;
     private MasterMindGameModel modelo;
-    private ColorCombination cc ;
     
     public void setModel(MasterMindGameModel model){
         this.modelo = model; 
@@ -36,9 +35,9 @@ public class MastermindPresenter implements MasterMindPresenterContract{
 
     @Override
     public void validate(List<Color> l) {
-        cc.setColors(l);
+        
         Map<Integer,Matches>mapa;
-        mapa= modelo.validatePlay(cc);
+        mapa = modelo.validatePlay(new ColorCombination(l));
         vista.play(mapa);
     }
 

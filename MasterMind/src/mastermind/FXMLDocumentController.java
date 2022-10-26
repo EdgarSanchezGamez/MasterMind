@@ -12,6 +12,8 @@ import static java.awt.SystemColor.text;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -180,23 +182,32 @@ public class FXMLDocumentController implements Initializable, interfaces.MasterM
         }
 
     }
-    int contador = 0;
-
+    int contador = 1;
+    private List<Color> jugada = new ArrayList<>();
     @FXML
     private void afegirColor(ActionEvent event) {
         switch (((Button) event.getSource()).getId()) {
             case "BLAU":
-                ((Label) gridPane.getChildren().get(contador)).setStyle("-fx-background-color: blue");
+                ((Label) gridPane.getChildren().get(contador-1)).setStyle("-fx-background-color: blue");
+                jugada.add(Color.BLAU);
                 break;
             case "GROC":
-                ((Label) gridPane.getChildren().get(contador)).setStyle("-fx-background-color: yellow");
+                ((Label) gridPane.getChildren().get(contador-1)).setStyle("-fx-background-color: yellow");
+                jugada.add(Color.GROC);
                 break;
             case "VERMELL":
-                ((Label) gridPane.getChildren().get(contador)).setStyle("-fx-background-color: red");
+                ((Label) gridPane.getChildren().get(contador-1)).setStyle("-fx-background-color: red");
+                jugada.add(Color.VERMELL);
                 break;
             default:
-                ((Label) gridPane.getChildren().get(contador)).setStyle("-fx-background-color: green");
+                ((Label) gridPane.getChildren().get(contador-1)).setStyle("-fx-background-color: green");
+                jugada.add(Color.VERD);
                 break;
+        }
+            
+        if((contador%4)==0){
+            presenter.validate(jugada);
+            jugada.clear();
         }
         
             contador++;
@@ -204,11 +215,6 @@ public class FXMLDocumentController implements Initializable, interfaces.MasterM
 
     }
     
-    public void separadorColores(){
-        
-        
-    
-    }
 
     private void configurarBotons() {
         botonAzul.setId(interfaces.Color.BLAU.toString());

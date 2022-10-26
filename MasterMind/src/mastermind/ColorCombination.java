@@ -19,7 +19,7 @@ import java.util.Map;
 public class ColorCombination implements ColorCombinationContract{
     //Llista de color de la jugada.
     private List<Color> lista = new ArrayList();
-    private int posCorrect=0, posIncorrect=0;
+    
     // Constructor on es guarda la llista de colors de la jugada
     public ColorCombination(List<Color> l){
         this.lista = l;
@@ -30,8 +30,9 @@ public class ColorCombination implements ColorCombinationContract{
     public Map<Integer,Matches> compare(ColorCombination hidden) {
         
         Map<Integer,Matches> mapa = new HashMap<Integer,Matches>();
+        int posCorrect=0, posIncorrect=0;
         
-        for(int i=0;i<lista.size();i++){
+        for(int i=0;i<hidden.lista.size();i++){
             
             if(lista.get(i).equals(hidden.lista.get(i)) ){
                 posCorrect++;

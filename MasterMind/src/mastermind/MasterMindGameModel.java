@@ -67,9 +67,9 @@ public class MasterMindGameModel implements MastermindGameModelContract{
         
         mapa = colors.compare(hiddenCc);
         
-        if(intentos<=5){
+        if(intentos<=5 && mapa.equals(hiddenCc)){
             listener.win("Molt bé, És l@ millor");
-        }else if(intentos<=intentosMax){
+        }else if(intentos<=intentosMax && mapa.equals(hiddenCc)){
             listener.win("Bé, encara pots millora més");
         }else if(intentos>intentosMax){
             listener.over("Game Over");

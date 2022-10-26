@@ -19,11 +19,22 @@ public class MasterMind extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        
+        MasterMindGameModel model = new MasterMindGameModel();
+        MastermindPresenter presentador = new MastermindPresenter();
+        FXMLDocumentController vista = new FXMLDocumentController();
+        
+        
+        presentador.setModel(model);
+        presentador.setVista(vista);
+        vista.setPresenter(presentador);
+        
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
 
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
+        stage.setTitle("MasterMind");
         stage.show();
     }
 

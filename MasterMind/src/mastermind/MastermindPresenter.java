@@ -6,38 +6,50 @@ package mastermind;
 
 import interfaces.Color;
 import interfaces.MasterMindPresenterContract;
+import interfaces.Matches;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author i7 6700k
  */
-public class MastermindPresenter extends GameListener implements MasterMindPresenterContract{
+public class MastermindPresenter implements MasterMindPresenterContract{
     
     private FXMLDocumentController vista;
     private MasterMindGameModel modelo;
-    private ColorCombination cc;
+    private ColorCombination cc ;
     
+    public void setModel(MasterMindGameModel model){
+        this.modelo = model; 
+        this.modelo.addListener(this);
+    }
     
+    public void setVista(FXMLDocumentController view){
+        this.vista = view;
+    }
     
     @Override
     public void startGame() {
-        modelo.start();
+        this.modelo.start();
     }
 
     @Override
     public void validate(List<Color> l) {
         cc.setColors(l);
+        Map<Integer,Matches>mapa;
+        mapa= modelo.validatePlay(cc);
+        vista.play(mapa);
     }
 
     @Override
     public void win(String a) {
-        vista.winGame(a);
+       vista.winGame(a);
     }
 
     @Override
     public void over(String a) {
-        vista.overGame(a);
+       vista.overGame(a);
     }
     
     

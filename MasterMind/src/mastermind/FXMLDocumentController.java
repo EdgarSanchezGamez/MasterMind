@@ -37,7 +37,7 @@ import javafx.scene.media.MediaPlayer;
  * @author Administrador
  */
 public class FXMLDocumentController implements Initializable, interfaces.MasterMindViewContract {
-
+    
     @FXML
     private Button botonRojo;
     @FXML
@@ -66,14 +66,29 @@ public class FXMLDocumentController implements Initializable, interfaces.MasterM
     private GridPane gridPane;
     @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private GridPane gridPaneE;
 
-    Map<Matches, Integer> mapa;
+    Map<Integer, Matches> mapa;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarBotons();
+        
     }
-
+    
+    private static MastermindPresenter presenter;
+    
+    public void setPresenter(MastermindPresenter presentador){
+        this.presenter = presentador;
+    }
+    
+    @FXML
+    public void iniciarPartida(ActionEvent event){
+       
+       this.presenter.startGame();
+        
+    }
     @FXML
     public void closeGame() {
         System.exit(0);
@@ -107,7 +122,7 @@ public class FXMLDocumentController implements Initializable, interfaces.MasterM
                 + "els quatre punts apareixeran de color negre i es mostrarà la combinació oculta a la part inferior.");
         alert.showAndWait();
     }
-    int contador =0;
+
     @Override
     public void winGame(String a) {
         com.sun.javafx.application.PlatformImpl.startup(() -> {
@@ -149,28 +164,50 @@ public class FXMLDocumentController implements Initializable, interfaces.MasterM
     }
 
     @Override
-    public void play(Map<Matches, Integer> mapa) {
+    public void play(Map<Integer, Matches> mapa) {
         this.mapa = mapa;
 
-        for (Map.Entry<Matches, Integer> entry : mapa.entrySet()) {
-            Matches key = entry.getKey();
-            Integer value = entry.getValue();
+        for (Map.Entry<Integer, Matches> entry : mapa.entrySet()) {
+            Integer key = entry.getKey();
+            Matches value = entry.getValue();
 
-            if (key.equals("Ok")) {
-
-            } else {
-
+            if (value.equals("Ok")) {
+                ((Label) gridPaneE.getChildren().get(contador)).setStyle("-fx-background-color: black");
+            } else if(value.equals("wrongPosition")){
+                ((Label) gridPaneE.getChildren().get(contador)).setStyle("-fx-background-color: white");
             }
 
         }
 
     }
+    int contador = 0;
 
     @FXML
     private void afegirColor(ActionEvent event) {
-        ((Button)event.getSource()).getId();
-     ((Label)gridPane.getChildren().get(contador)).setStyle("-fx-background-color: blue");
-     contador++;
+        switch (((Button) event.getSource()).getId()) {
+            case "BLAU":
+                ((Label) gridPane.getChildren().get(contador)).setStyle("-fx-background-color: blue");
+                break;
+            case "GROC":
+                ((Label) gridPane.getChildren().get(contador)).setStyle("-fx-background-color: yellow");
+                break;
+            case "VERMELL":
+                ((Label) gridPane.getChildren().get(contador)).setStyle("-fx-background-color: red");
+                break;
+            default:
+                ((Label) gridPane.getChildren().get(contador)).setStyle("-fx-background-color: green");
+                break;
+        }
+        
+            contador++;
+        
+
+    }
+    
+    public void separadorColores(){
+        
+        
+    
     }
 
     private void configurarBotons() {
@@ -179,5 +216,6 @@ public class FXMLDocumentController implements Initializable, interfaces.MasterM
         botonRojo.setId(interfaces.Color.VERMELL.toString());
         bototnVerde.setId(interfaces.Color.VERD.toString());
     }
+    
 
 }

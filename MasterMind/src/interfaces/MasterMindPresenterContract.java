@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author i7 6700k
  */
-public interface MasterMindPresenterContract {
+public interface MasterMindPresenterContract extends GameListenerContract{
     
     //Inicia o reinicia el joc.
     public void startGame();  

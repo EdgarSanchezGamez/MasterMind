@@ -10,8 +10,8 @@ package interfaces;
  */
 public interface GameListenerContract {
     
-    public void over();
+    public void over(String a);
     
-    public void win();
+    public void win(String a);
     
 }

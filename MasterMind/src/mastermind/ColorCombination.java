@@ -7,6 +7,8 @@ package mastermind;
 import interfaces.Color;
 import interfaces.ColorCombinationContract;
 import interfaces.Matches;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +18,8 @@ import java.util.Map;
  */
 public class ColorCombination implements ColorCombinationContract{
     //Llista de color de la jugada.
-    private List<Color> lista;
+    private List<Color> lista = new ArrayList();
+    private int posCorrect=0, posIncorrect=0;
     // Constructor on es guarda la llista de colors de la jugada
     public ColorCombination(List<Color> l){
         this.lista = l;
@@ -25,12 +28,34 @@ public class ColorCombination implements ColorCombinationContract{
 
     @Override
     public Map<Integer,Matches> compare(ColorCombination hidden) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        Map<Integer,Matches> mapa = new HashMap<Integer,Matches>();
+        
+        for(int i=0;i<lista.size();i++){
+            
+            if(lista.get(i).equals(hidden.lista.get(i)) ){
+                posCorrect++;
+            }else if(lista.contains(hidden.lista.get(i))){
+                posIncorrect++;
+            }
+        
+        }
+        
+        mapa.put(posCorrect, Matches.Ok);
+        mapa.put(posIncorrect, Matches.wrongPosition);
+        
+        return mapa;
     }
 
     @Override
     public List<Color> setColors(List<Color> l) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        lista.add(l.get(0));
+        lista.add(l.get(1));
+        lista.add(l.get(2));
+        lista.add(l.get(3));
+        
+        return lista;
     }
     
    

@@ -6,7 +6,6 @@ package interfaces;
 
 import java.util.Map;
 import mastermind.ColorCombination;
-import mastermind.GameListener;
 
 /**
  *
@@ -20,14 +19,14 @@ public interface MastermindGameModelContract {
     public void start();
     
     // Registra el listener necessari per controlar els estats del joc. 
-    public void addListener(GameListener listener);
+    public void addListener(GameListenerContract listener);
     
     /* Arriba una combinació dels colors de la jugada i s’encarrega de retornar el mapa amb el número de posicions 
     on el color i la ubicació són correctes i el número on només el color és correcte (però no la ubicació).
     També s’encarregaria d’avissar als listeners de si hi ha un canvi d’estat del joc 
     (per exemple si s’ha guanyat o ha finalitzat el joc per nombre d’intents)
     */
-    public  Map<Matches,Integer> validatePlay(ColorCombination colors);
+    public  Map<Integer,Matches> validatePlay(ColorCombination colors);
     
     
 }
